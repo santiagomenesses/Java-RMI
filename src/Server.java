@@ -7,15 +7,16 @@ public class Server extends ImplRMI {
    public static void main(String args[]) { 
       
       try { 
-         Runtime.getRuntime().exec("rmiregistry 1024");
+         System.setProperty("java.rmi.server.hostname","25.77.250.182");
          // Instantiating the implementation class 
          ImplRMI obj = new ImplRMI(); 
     
          // Exporting the object of implementation class  
-         // (here we are exporting the remote object to the stub) 
+         // (here we are exporting the remote object to the stub)
          InterfaceRMI stub = (InterfaceRMI) UnicastRemoteObject.exportObject(obj, 0);  
          
          // Binding the remote object (stub) in the registry 
+         
          Registry registry = LocateRegistry.getRegistry(); 
          
          registry.bind("InterfaceRMI", stub);  
