@@ -5,7 +5,9 @@ import java.rmi.server.UnicastRemoteObject;
 public class Server extends ImplRMI { 
    public Server() {} 
    public static void main(String args[]) { 
+      
       try { 
+         Runtime.getRuntime().exec("rmiregistry 1024");
          // Instantiating the implementation class 
          ImplRMI obj = new ImplRMI(); 
     
@@ -16,7 +18,7 @@ public class Server extends ImplRMI {
          // Binding the remote object (stub) in the registry 
          Registry registry = LocateRegistry.getRegistry(); 
          
-         registry.bind("Hello", stub);  
+         registry.bind("InterfaceRMI", stub);  
          System.err.println("Server ready"); 
       } catch (Exception e) { 
          System.err.println("Server exception: " + e.toString()); 

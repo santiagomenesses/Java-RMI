@@ -1,3 +1,8 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Oferta {
 
     private Integer id;
@@ -40,11 +45,27 @@ public class Oferta {
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
+        return "id='" + getId() + "'" +
             ", sector='" + getSector() + "'" +
-            ", vacantes='" + getVacantes() + "'" +
-            "}";
+            ", vacantes='" + getVacantes() + "'";
     }
 
+    public void saveDB(Oferta oferta){
+        File db = new File("db.txt");
+
+        try{
+            if(!db.exists()){
+                System.out.println("We had to make a new file.");
+                db.createNewFile();
+            }
+        FileWriter fileWriter = new FileWriter(db, true);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.write(oferta.toString() + "\n");
+        bufferedWriter.close();    
+
+    } catch(IOException e) {
+        System.out.println("No satisfactoria");
+    }
+        
+    }
 }
