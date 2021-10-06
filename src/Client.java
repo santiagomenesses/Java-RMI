@@ -9,7 +9,7 @@ public class Client {
          Registry registry = LocateRegistry.getRegistry(null); 
     
          // Looking up the registry for the remote object 
-         Hello stub = (Hello) registry.lookup("Hello"); 
+         InterfaceRMI stub = (InterfaceRMI) registry.lookup("Hello"); 
     
          // Calling the remote method using the obtained object 
          stub.printMsg(); 
