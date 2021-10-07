@@ -1,0 +1,2 @@
+id='1', sector='12', vacantes='45'
+id='1', sector='55', vacantes='3'

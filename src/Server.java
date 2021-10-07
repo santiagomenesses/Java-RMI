@@ -11,7 +11,7 @@ public class Server extends ImplRMI {
       try { 
          // Instantiating the implementation class 
          ImplRMI obj = new ImplRMI(); 
-         System.setProperty("java.rmi.server.hostname", "192.168.1.104"); //change ip hamachi
+         System.setProperty("java.rmi.server.hostname", "25.77.250.182"); //change ip hamachi
          // Exporting the object of implementation class  
          // (here we are exporting the remote object to the stub)
          InterfaceRMI stub = (InterfaceRMI) UnicastRemoteObject.exportObject(obj, 0);  
