@@ -12,7 +12,7 @@ public class Client {
     
       try {  
          // Getting the registry 
-         Registry registry = LocateRegistry.getRegistry(null); 
+         Registry registry = LocateRegistry.getRegistry("192.168.1.104"); //Change ip hamachi 
     
          // Looking up the registry for the remote object 
          InterfaceRMI stub = (InterfaceRMI) registry.lookup("InterfaceRMI"); 
